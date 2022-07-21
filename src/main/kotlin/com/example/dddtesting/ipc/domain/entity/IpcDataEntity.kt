@@ -1,4 +1,5 @@
 package com.example.dddtesting.ipc.domain.entity
 
-class IpcDataEntity {
-}
+import java.util.*
+
+data class IpcDataEntity(private val month: Date, private val value: Int)
