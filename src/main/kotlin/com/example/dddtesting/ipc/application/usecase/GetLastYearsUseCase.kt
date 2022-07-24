@@ -8,8 +8,8 @@ import java.time.Year
 class GetLastYearsUseCase {
     fun execute(months: Int): List<IpcYearValueResponse> {
         return listOf(
-            IpcYearValueResponse(Year.of(2021), 5),
-            IpcYearValueResponse( Year.of(2021), 6)
+            IpcYearValueResponse(Year.of(2021), 3.08),
+            IpcYearValueResponse( Year.of(2020), 0.30)
         )
     }
 }
