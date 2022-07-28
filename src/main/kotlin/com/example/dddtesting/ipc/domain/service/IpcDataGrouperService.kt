@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service
 
 @Service
 class IpcDataGrouperService(private val ipcDataRepository: IpcDataRepositoryInterface) {
-    fun getLastYears(years: Int): List<IpcDataAverageEntity> {
-        val allYears = ipcDataRepository.getAllYears(years)
+    fun getLastYears(limit: Int): List<IpcDataAverageEntity> {
+        val allYears = ipcDataRepository.getYears(limit)
         return allYears.map { IpcDataAverageEntity(year = it.year, value = it.values.average()) }
     }
 }

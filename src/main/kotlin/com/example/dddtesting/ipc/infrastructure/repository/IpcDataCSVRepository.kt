@@ -11,12 +11,12 @@ import java.io.File
 @Service
 class IpcDataCSVRepository: IpcDataRepositoryInterface {
 
-    override fun getAllYears(years: Int): List<IpcDataEntity> {
+    override fun getYears(limit: Int): List<IpcDataEntity> {
         val filename = "./datosCesta294186855.csv"
         val contentFile = csvReader().readAll(File(filename))
         val ipcDataList = transformToIpcDataEntity(contentFile.headTail().second)
         ipcDataList.sortedByDescending { it.year }
-        return ipcDataList.take(years)
+        return ipcDataList.take(limit)
     }
     private fun transformToIpcDataEntity(content: List<List<String>>): MutableList<IpcDataEntity> {
         return content.map {

@@ -7,8 +7,8 @@ import java.time.Year
 
 @Service
 class GetLastYearsUseCase(private val ipcDataGrouperService: IpcDataGrouperService) {
-    fun execute(years: Int): List<IpcYearValueResponse> {
-        val ipcDataAverage = ipcDataGrouperService.getLastYears(years)
+    fun execute(limit: Int): List<IpcYearValueResponse> {
+        val ipcDataAverage = ipcDataGrouperService.getLastYears(limit)
         return ipcDataAverage.map {
             IpcYearValueResponse(
                 year = Year.of(it.year),

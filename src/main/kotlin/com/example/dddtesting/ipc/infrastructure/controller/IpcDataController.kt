@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("ipc")
 class IpcDataController(private val getLastYearsUseCase: GetLastYearsUseCase) {
 
-    @GetMapping("last-months/{months}")
-    fun getLastMonths(@PathVariable("months") month: Int): ResponseEntity<List<IpcYearValueResponse>> {
-        return ResponseEntity.ok(getLastYearsUseCase.execute(2))
+    @GetMapping("last-months/{limit}")
+    fun getLastMonths(@PathVariable("limit") limit: Int): ResponseEntity<List<IpcYearValueResponse>> {
+        return ResponseEntity.ok(getLastYearsUseCase.execute(limit))
     }
 
 }
