@@ -1,15 +1,19 @@
 package com.example.dddtesting.ipc.application.usecase
 
 import com.example.dddtesting.ipc.application.response.IpcYearValueResponse
+import com.example.dddtesting.ipc.domain.service.IpcDataGrouperService
 import org.springframework.stereotype.Service
 import java.time.Year
 
 @Service
-class GetLastYearsUseCase {
-    fun execute(months: Int): List<IpcYearValueResponse> {
-        return listOf(
-            IpcYearValueResponse(Year.of(2021), 3.08),
-            IpcYearValueResponse( Year.of(2020), 0.30)
-        )
+class GetLastYearsUseCase(private val ipcDataGrouperService: IpcDataGrouperService) {
+    fun execute(years: Int): List<IpcYearValueResponse> {
+        val ipcDataAverage = ipcDataGrouperService.getLastYears(years)
+        return ipcDataAverage.map {
+            IpcYearValueResponse(
+                year = Year.of(it.year),
+                value = String.format("%.2f", it.value).toDouble()
+            )
+        }
     }
 }
