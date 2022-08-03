@@ -1,6 +1,6 @@
-package com.example.dddtesting.application
+package com.example.dddtesting.ipc.application
 
-import com.example.dddtesting.ipc.application.usecase.GetLastYearsUseCase
+import com.example.dddtesting.ipc.application.usecase.GetMostExpensiveGasStation
 import com.example.dddtesting.ipc.application.response.IpcYearValueResponse
 import org.junit.Test
 import org.junit.jupiter.api.Assertions
@@ -8,7 +8,7 @@ import java.time.Year
 
 class GetLastYearsUseCaseTest {
 
-    private val getLastYearsUseCase = GetLastYearsUseCase()
+    private val getLastYearsUseCase = GetMostExpensiveGasStation()
 
     @Test
     fun `Test execute with value 2 in year params should return 2 years`() {
