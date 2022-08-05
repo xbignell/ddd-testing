@@ -1,14 +1,19 @@
 package com.example.dddtesting.ipc.application
 
-import com.example.dddtesting.ipc.application.usecase.GetMostExpensiveGasStation
 import com.example.dddtesting.ipc.application.response.IpcYearValueResponse
+import com.example.dddtesting.ipc.application.usecase.GetLastYearsUseCase
 import org.junit.Test
 import org.junit.jupiter.api.Assertions
+import org.junit.runner.RunWith
+import org.mockito.InjectMocks
+import org.mockito.junit.MockitoJUnitRunner
 import java.time.Year
 
+@RunWith(MockitoJUnitRunner::class)
 class GetLastYearsUseCaseTest {
 
-    private val getLastYearsUseCase = GetMostExpensiveGasStation()
+    @InjectMocks
+    lateinit var getLastYearsUseCase: GetLastYearsUseCase
 
     @Test
     fun `Test execute with value 2 in year params should return 2 years`() {
