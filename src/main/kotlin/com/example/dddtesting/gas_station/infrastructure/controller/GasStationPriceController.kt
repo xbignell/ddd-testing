@@ -1,20 +1,21 @@
-package com.example.dddtesting.ipc.infrastructure.controller
+package com.example.dddtesting.gas_station.infrastructure.controller
 
-import com.example.dddtesting.ipc.application.usecase.GetLastYearsUseCase
-import com.example.dddtesting.ipc.application.response.IpcYearValueResponse
+import com.example.dddtesting.gas_station.application.response.GasStationPriceResponse
+import com.example.dddtesting.ipc.application.usecase.GetMostExpensiveGasStationUseCase
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("ipc")
-class IpcDataController(private val getLastYearsUseCase: GetLastYearsUseCase) {
+@RequestMapping("gas-station-price")
+class GasStationPriceController(private val getMostExpensiveGasStationUseCase: GetMostExpensiveGasStationUseCase) {
 
-    @GetMapping("last-months/{limit}")
-    fun getLastMonths(@PathVariable("limit") limit: Int): ResponseEntity<List<IpcYearValueResponse>> {
-        return ResponseEntity.ok(getLastYearsUseCase.execute(limit))
+    @GetMapping("last-updated")
+    fun getMostExpensiveGasStation(): ResponseEntity<List<GasStationPriceResponse>> {
+        return ResponseEntity.ok(getMostExpensiveGasStationUseCase.execute())
     }
 
+    // get last gas station updated
+    // get all sorted by price
 }

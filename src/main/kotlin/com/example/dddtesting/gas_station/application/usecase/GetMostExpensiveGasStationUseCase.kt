@@ -4,8 +4,8 @@ import com.example.dddtesting.gas_station.application.response.GasStationPriceRe
 import org.springframework.stereotype.Service
 
 @Service
-class GetMostExpensiveGasStation() {
+class GetMostExpensiveGasStationUseCase {
     fun execute(): List<GasStationPriceResponse> {
-
+        return emptyList()
     }
 }

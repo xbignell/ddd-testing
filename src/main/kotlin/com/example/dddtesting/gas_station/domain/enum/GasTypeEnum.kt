@@ -1,4 +1,4 @@
-package com.example.dddtesting.gas_station.application.enum
+package com.example.dddtesting.gas_station.domain.enum
 
 enum class GasTypeEnum {
     GASOIL_95_E5,
